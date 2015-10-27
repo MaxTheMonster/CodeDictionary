@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit a definition - CodeDictionary</title>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body>
+  <div class="new-definition">
+    <h1>Submit a definition</h1>
+    <form method="post" action="definition.php">
+      <div class="entry">
+        <label for="word">Word to define</label><input name="word" type="text" placeholder="Word...">
+      </div>
+      <div class="entry">
+        <label for="name">Your nickname</label><input name="name" type="text" placeholder="Name...">
+      </div>
+      <div class="entry">
+        <label for="definition">Definition</label> <textarea type="text" name="definition" placeholder="Your definition (Markdown supported)"></textarea>
+      </div>
+      <div class="entry">
+        <label for="type">Language/Framework(s) word applies to (if any)</label>
+        <input type="text" name="type" placeholder="E.g HTML">
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  
+</body>
+</html>

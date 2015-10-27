@@ -1,0 +1,49 @@
+@media only screen and (max-width: 809px) {
+  #searchbox {
+    width: 90%;
+    h1 {
+      display: block;
+    }
+    #mainsearch {
+      width: 90%;
+      left: 0;
+    }
+    #results {
+      width: 90%;
+    }
+  }
+
+  nav {
+    position: fixed;
+    width: 90%;
+    left: 0;
+  }
+}
+
+@media only screen and (max-width: 588px) {
+  #searchbox {
+    width: 100%;
+    h1 {
+      width: 60%;
+      font-size: 2rem;
+      padding-bottom: 2em;
+      text-align: center;
+      display: inline;
+      position: unset;
+    }
+    #results {
+      width: 95%;
+
+    }
+    #mainsearch {
+      width: 95%;
+      height: 4em;
+    }
+  }
+  nav {
+    bottom: 0;
+    a {
+      left: 0 !important;
+    }
+  }
+}
