@@ -19,12 +19,20 @@
         <label for="definition">Definition</label> <textarea type="text" name="definition" placeholder="Your definition (Markdown supported)"></textarea>
       </div>
       <div class="entry">
-        <label for="type">Language/Framework(s) word applies to (if any)</label>
-        <input type="text" name="type" placeholder="E.g HTML">
+        <label for="tagName">Language/Framework(s) word applies to (if any)</label>
+        <input type="text" name="tagName" placeholder="E.g HTML" onkeyup="getWords(this.value)" autocomplete="off">
+        <div id="tags"></div>
       </div>
       <input type="submit" value="Submit">
     </form>
   </div>
-  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+  function getWords(value) {
+    $.post("../tags.php", {tagName: value}, function(data) {
+      $("#tags").html(data);
+    });
+  }
+  </script>
 </body>
 </html>

@@ -161,6 +161,7 @@ nav {
       margin: 1em;
       transition: 0.2s;
       padding: 0.3em;
+      width: 35%;
       border-radius: 2px;
       font-size: 1.34em;
       resize: none;
@@ -259,6 +260,30 @@ nav {
       font-size: 0.8em;
       text-decoration: none !important;
       left: 0;
+    }
+
+    h3 {
+      float: right;
+      color: limegreen;
+      font-weight: normal;
+    }
+  }
+}
+
+#tags {
+  margin: 0 auto;
+  width: 35%;
+  top: 0;
+  padding: 0;
+  background-color: white;
+  border-color: limegreen;
+
+  div {
+    border-bottom: 2px solid darken(slategray, 40%);
+    
+    h1 {
+      font-size: 1.4rem;
+      opacity: 0.8;
     }
   }
 }

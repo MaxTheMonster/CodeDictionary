@@ -8,5 +8,5 @@ $definitions = mysqli_query($link, "SELECT * FROM definitions WHERE word LIKE'%$
 while($defs = mysqli_fetch_array($definitions)) {
   echo "<div><a href='?wd="
    . $defs['word'] . "'><h1> "
-    . $defs['word'] . "</h1></a><h2>". $defs['time'] . "</h2><p>" . $defs["definition"] . "</p><h4>By " . $defs['name'] . "</h4></div>";
+    . $defs['word'] . "</h1></a><h3>" . $defs["tagName"] . "<h2>". $defs['time'] . "</h2><p>" . $defs["definition"] . "</p><h4>By " . $defs['name'] . "</h4></div>";
 }
