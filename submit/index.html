@@ -1,3 +1,12 @@
+<?php 
+
+if ($_GET['tag'] !== "") {
+  echo 'True';
+} else {
+  echo 'False';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +40,12 @@
   function getWords(value) {
     $.post("../tags.php", {tagName: value}, function(data) {
       $("#tags").html(data);
+      $(".infoTag").click(function() {
+    console.log("Click");
+    var tag = $(this).val();
+    $("input[name=tagName]").text(tag);
+    
+  });
     });
   }
   </script>

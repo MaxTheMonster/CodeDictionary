@@ -45,19 +45,20 @@ body {
   }
 
   #mainsearch {
-  width: 60%;
-  padding: 1.6em;
-  color: limegreen;
-  background-color: darken(slategray, 40%);
-  font-size: 1.5em;
-  border-radius: 3px;
-  transition: 0.5s;
-  border: 0;
-  outline: 0;
-    &:focus {
-      background-color: darken(slategray, 30%);
-      transition: 1s;
-    }
+    width: 60%;
+    text-shadow: 2px 1px 0 rgba(255,255,255,0.22);
+    padding: 1.6em;
+    color: limegreen;
+    background-color: darken(slategray, 40%);
+    font-size: 1.5em;
+    border-radius: 3px;
+    transition: 0.2s;
+    border: 0;
+    outline: 0;
+      &:focus {
+        background-color: darken(slategray, 30%);
+        transition: 1s;
+      }
   }
 }
 
@@ -142,9 +143,7 @@ nav {
       top: 5px;
       left: 5px;
       z-index: 1;
-
       background: #333;
-
       -webkit-box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
       -moz-box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
       box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
@@ -171,7 +170,7 @@ nav {
           border: 1px solid limegreen;
           transition: 0.5s;
         }
-      }
+    }
     textarea {
       height: 5em;
       margin: 0 auto;
@@ -192,7 +191,6 @@ nav {
       margin: 0 auto;
       transition: 0.7s;
       display: block;
-      
 
       &:hover {
         transition: 0.2s;
@@ -203,7 +201,7 @@ nav {
     }
 }
 
-#results {
+.results {
   color: limegreen !important;
   text-decoration: none;
   width: 60%;
@@ -223,11 +221,8 @@ nav {
     margin: 0;
 
     &:hover {
-      background-color: darken(slategray, 10%);
-      transition: 0.8s;
-      cursor: pointer;
-      font-size: 105%;
-    }
+        background-color: darken(slategray, 20%);
+      }
     a {
       text-decoration: none;
       color: white;
@@ -242,11 +237,12 @@ nav {
     }
     }
     p {
-      padding: 0.5em;
+      padding: 0.5em 0 0 0.5em;
       bottom: 0;
       display: list-item;
       overflow: hidden;
       text-align: justify;
+      color: limegreen;
     }
     h2 {
       font-size: 0.6em;
@@ -260,12 +256,31 @@ nav {
       font-size: 0.8em;
       text-decoration: none !important;
       left: 0;
+
+      strong {
+        color: limegreen;
+        text-decoration: underline;
+      }
     }
 
     h3 {
-      float: right;
-      color: limegreen;
+      color: white;
       font-weight: normal;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .report {
+      font-size: 0.5rem;
+      float: right;
+      opacity: 0.7;
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -276,14 +291,84 @@ nav {
   top: 0;
   padding: 0;
   background-color: white;
+  text-align: center;
   border-color: limegreen;
 
   div {
     border-bottom: 2px solid darken(slategray, 40%);
+    cursor: pointer;
     
     h1 {
+      text-align: center;
       font-size: 1.4rem;
+      display: inline;
       opacity: 0.8;
+    }
+  }
+}
+
+#tagresults {
+  margin: 0 auto;
+  text-align: center;
+  width: 70%;
+  top: 40%;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+
+  #title {
+    font-weight: normal;
+    text-align: center;
+    display: inline;
+
+    span {
+      color: limegreen;
+      font-weight: bold;
+    }
+  }
+}
+
+.reportModal {
+  color: black;
+  background-color: white;
+  border-radius: 2px;
+  margin: 0 auto;
+  width: 70%;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+
+  h1 {
+    width: 70%;
+    margin: 0 auto;
+    width: 70%;
+    top: 60%;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: inline;
+    font-weight: normal;
+    font-size: 1.5rem;
+  }
+}
+
+.modal {
+  background-color: rgba(0,0,0,0.7);
+  transition: 0.5s;
+
+  a {
+    font-size: 0.8rem;
+    padding: 1em;
+    opacity: 0.8;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
     }
   }
 }
