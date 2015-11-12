@@ -1,12 +1,3 @@
-<?php 
-
-if ($_GET['tag'] !== "") {
-  echo 'True';
-} else {
-  echo 'False';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +7,7 @@ if ($_GET['tag'] !== "") {
 </head>
 <body>
   <div class="new-definition">
-    <h1>Submit a definition</h1>
+  <h1>Submit a definition</h1>
     <form method="post" action="definition.php">
       <div class="entry">
         <label for="word">Word to define</label><input name="word" type="text" placeholder="Word...">
@@ -25,7 +16,7 @@ if ($_GET['tag'] !== "") {
         <label for="name">Your nickname</label><input name="name" type="text" placeholder="Name...">
       </div>
       <div class="entry">
-        <label for="definition">Definition</label> <textarea type="text" name="definition" placeholder="Your definition (Markdown supported)"></textarea>
+        <label for="definition">Definition</label> <textarea type="text" name="definition" placeholder="Your definition"></textarea>
       </div>
       <div class="entry">
         <label for="tagName">Language/Framework(s) word applies to (if any)</label>
@@ -33,19 +24,20 @@ if ($_GET['tag'] !== "") {
         <div id="tags"></div>
       </div>
       <input type="submit" value="Submit">
-    </form>
+    </form>  
   </div>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
   function getWords(value) {
     $.post("../tags.php", {tagName: value}, function(data) {
       $("#tags").html(data);
       $(".infoTag").click(function() {
-    console.log("Click");
-    var tag = $(this).val();
-    $("input[name=tagName]").text(tag);
+        console.log("Click");
+        var tag = $(this).text();
+        $("input[name=tagName]").val(tag);
+        
     
-  });
+      });
     });
   }
   </script>

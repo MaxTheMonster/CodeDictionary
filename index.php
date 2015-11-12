@@ -1,8 +1,9 @@
 <?php
 include 'db.php';
-if (!empty(mysqli_real_escape_string($_GET['tag']))) {
-  $tag = mysqli_real_escape_string($_GET['tag']);
-}
+
+if (!empty($_GET)) {
+  $tag = mysqli_real_escape_string($link, $_GET['tag']);
+} 
 
 ?> 
 <!DOCTYPE html>
@@ -13,6 +14,7 @@ if (!empty(mysqli_real_escape_string($_GET['tag']))) {
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
+
   <div class="container">
   <div id="tagresults">
     <?php
@@ -26,10 +28,12 @@ if (!empty(mysqli_real_escape_string($_GET['tag']))) {
         print mysqli_error();
       }
     while ($row = mysqli_fetch_assoc($tagResults)) {
-      echo "<div class='list'><h1>" . mysqli_real_escape_string($row["word"]) . "</h1><p>" . mysqli_real_escape_string($row["definition"]) . "<p><h4>By " . mysqli_real_escape_string($row["name"]) . "</h4><a class='report' onclick='report()'>Report</a></div>";
+      echo "<div class='list'><h1>" . mysqli_real_escape_string($link, $row["word"]) . "</h1><p>" . mysqli_real_escape_string($link, $row["definition"]) . "<p><h4>By " . mysqli_real_escape_string($link, $row["name"]) . "</h4><a class='report' onclick='report()'>Report</a></div>";
     }
   }
     ?></div>
+    
+  
   </div>
     <div id="searchbox">
     <h1>Search tech definitions now: </h1>
@@ -42,24 +46,32 @@ if (!empty(mysqli_real_escape_string($_GET['tag']))) {
   <a href="submit/">Submit Definition</a>
 </nav>
   </div>
+
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
-  function getWords(value) {
+   function getWords(value) {
     $.post("search.php", {word: value}, function(data) {
       $(".results").html(data);
     });
   }
-  function report() {
+
+ 
+
+ function report() {
     $("body").append("<div class='reportModal'><h1>Thanks for reporting this definition.</h1><a>Close</a></div>");
     console.log("CLICKIED.");
-
+    
+    
     $("body").addClass('modal');
-
-    $(".reportModal a").click(function() {
-      $(this).parent().remove();
+    $("a").click(function() {
       $("body").removeClass('modal');
+
+    $(this).parent().remove();
     });
-  }
-  </script>
+    
+   
+    }
+    </script>
 </body>
 </html>

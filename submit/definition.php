@@ -2,13 +2,17 @@
 $siteRoot = "localhost/codeDictionary/";
 include '../db.php';
 
-echo $_POST['tagName'];
+if (empty(mysqli_real_escape_string($link, $_POST['word']) && mysqli_real_escape_string($link, $_POST['definition']))) {
+  echo 'You need to fill in a Word and a definition!';
+} else {
 
-$getTags = mysqli_query($link, "SELECT tagName FROM tags WHERE tagName = '" . $_POST['tagName'] . "'");
+echo mysqli_real_escape_string($link, $_POST['tagName']);
+
+$getTags = mysqli_query($link, "SELECT tagName FROM tags WHERE tagName = '" . mysqli_real_escape_string($link, $_POST['tagName']) . "'");
 
 if (mysqli_num_rows($getTags) == 0) {
   echo 'Does not exist.';
-  $newTag = mysqli_query($link, "INSERT INTO `tags` (`tagName`) VALUES('" . $_POST['tagName'] . "')");
+  $newTag = mysqli_query($link, "INSERT INTO `tags` (`tagName`) VALUES('" . mysqli_real_escape_string($link, $_POST['tagName']) . "')");
   if (!$newTag) {
       echo "Something went wrong! :(";
       echo mysqli_error($link);
@@ -19,10 +23,10 @@ if (mysqli_num_rows($getTags) == 0) {
 }
 
 $sql = "INSERT INTO `definitions` (`word`, `name`, `definition`, `tagName`) VALUES('"
-    . $_POST['word']  . "','"
-    . $_POST['name'] . "', '"
-    . $_POST['definition'] . "', '"
-    . $_POST['tagName'] . "')";
+    . mysqli_real_escape_string($link, $_POST['word'])  . "','"
+    . mysqli_real_escape_string($link, $_POST['name']) . "', '"
+    . mysqli_real_escape_string($link, $_POST['definition']) . "', '"
+    . mysqli_real_escape_string($link, $_POST['tagName']) . "')";
 
     if (!mysqli_query($link, $sql)) {
       echo "Something went wrong! :(";
@@ -30,4 +34,5 @@ $sql = "INSERT INTO `definitions` (`word`, `name`, `definition`, `tagName`) VALU
     }
     
 // mysql_real_escape_string($_POST['name'])
-header("Location: http://" . $siteRoot);
+ header("Location: http://" . $siteRoot);
+}
