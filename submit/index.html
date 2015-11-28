@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Submit a definition - CodeDictionary</title>
   <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name=viewport content="width=device-width, initial-scale=1.5">
 </head>
 <body>
   <div class="new-definition">
@@ -28,6 +30,9 @@
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
+  $("input[type=submit]").click(function() {
+    alert("BAAAAAAAAAAAAAAAAAHAHAHAH");
+  });
   function getWords(value) {
     $.post("../tags.php", {tagName: value}, function(data) {
       $("#tags").html(data);
@@ -35,8 +40,6 @@
         console.log("Click");
         var tag = $(this).text();
         $("input[name=tagName]").val(tag);
-        
-    
       });
     });
   }

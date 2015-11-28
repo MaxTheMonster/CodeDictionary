@@ -2,7 +2,7 @@
 $siteRoot = "localhost/codeDictionary/";
 include '../db.php';
 
-if (empty(mysqli_real_escape_string($link, $_POST['word']) && mysqli_real_escape_string($link, $_POST['definition']))) {
+if (empty(mysqli_real_escape_string($link, $_POST['word'])) && empty(mysqli_real_escape_string($link, $_POST['definition']))) {
   echo 'You need to fill in a Word and a definition!';
 } else {
 
@@ -15,7 +15,7 @@ if (mysqli_num_rows($getTags) == 0) {
   $newTag = mysqli_query($link, "INSERT INTO `tags` (`tagName`) VALUES('" . mysqli_real_escape_string($link, $_POST['tagName']) . "')");
   if (!$newTag) {
       echo "Something went wrong! :(";
-      echo mysqli_error($link);
+      echo mysqli_error($link); 
     }
 } else {
   echo mysqli_num_rows($getTags);

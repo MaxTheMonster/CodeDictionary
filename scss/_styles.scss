@@ -46,7 +46,6 @@ body {
 
   #mainsearch {
     width: 60%;
-    text-shadow: 2px 1px 0 rgba(255,255,255,0.22);
     padding: 1.6em;
     color: limegreen;
     background-color: darken(slategray, 40%);
@@ -62,7 +61,6 @@ body {
   }
 }
 
-  
 .highlights {
   margin: 0 auto;
   width: 70%;
@@ -244,6 +242,7 @@ nav {
       text-align: justify;
       color: limegreen;
     }
+    
     h2 {
       font-size: 0.6em;
       color: white;
@@ -369,6 +368,32 @@ nav {
     &:hover {
       cursor: pointer;
       text-decoration: underline;
+    }
+  }
+}
+
+.latestResults {
+  width: 20%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font-size: 1rem;
+  float: right;
+  top: 30%;
+
+  h1 {
+    text-align: center;
+  }
+
+  div {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+
+    h1 {
+      text-align: left !important;
+      font-size: 0.95rem;
+    } 
+
+    h3 {
+      font-size: 0.8rem;
     }
   }
 }
