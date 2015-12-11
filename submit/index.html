@@ -8,6 +8,9 @@
   <meta name=viewport content="width=device-width, initial-scale=1.5">
 </head>
 <body>
+  <nav>
+    <a href="/"><h1>Code Dictionary</h1></a>
+  </nav>
   <div class="new-definition">
   <h1>Submit a definition</h1>
     <form method="post" action="definition.php">
@@ -30,9 +33,6 @@
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
-  $("input[type=submit]").click(function() {
-    alert("BAAAAAAAAAAAAAAAAAHAHAHAH");
-  });
   function getWords(value) {
     $.post("../tags.php", {tagName: value}, function(data) {
       $("#tags").html(data);

@@ -12,18 +12,14 @@ while($defs = mysqli_fetch_array($definitions)) {
 ?>
 <script>
 function report(onReport) {
-    $("body").append("<div class='reportModal'><h1>Thanks for reporting this definition.</h1><a>Close</a></div>");
+    $(".container").append("<div class='reportCover' style='top: 0; bottom: 0; left: 0; right: 0; position: fixed;'><div class='reportModal'><h1>Thanks for reporting this definition.</h1><i class='fa fa-close'></i></div></div>");
     console.log("CLICKIED.");
 
-    $.post("report.php", {id: onReport}, function(data) {
-      $("body").append(data);
-    });
-    $("body").addClass('modal');
-    
-    $("a").click(function() {
-      $("body").removeClass('modal');
-
-    $(this).parent().remove();
-    });
+    $(".reportModal i").click(function() {
+        console.log("BROOO");
+        $(".reportCover").hide(); 
+      });
+    $(".reportCover").show();
+    $(".reportCover").css("background-color", "rgba(0,0,0,0.7)");
     }
 </script>
