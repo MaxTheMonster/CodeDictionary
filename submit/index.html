@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Submit a definition - CodeDictionary</title>
   <link rel="stylesheet" type="text/css" href="../css/main.css">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
   <meta name=viewport content="width=device-width, initial-scale=1.5">
 </head>
 <body>
@@ -24,7 +24,7 @@
         <label for="definition">Definition</label> <textarea type="text" name="definition" placeholder="Your definition"></textarea>
       </div>
       <div class="entry">
-        <label for="tagName">Language/Framework(s) word applies to (if any)</label>
+        <label for="tagName">Language/Framework(s) word applies to</label>
         <input type="text" name="tagName" placeholder="E.g HTML" onkeyup="getWords(this.value)" autocomplete="off">
         <div id="tags"></div>
       </div>
@@ -43,6 +43,13 @@
       });
     });
   }
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53354801-4', 'auto');
+  ga('send', 'pageview');
   </script>
 </body>
 </html>

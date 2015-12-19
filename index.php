@@ -73,6 +73,7 @@ if (!empty($_GET)) {
      
     </nav>
     <div class="tagInformationBackground"></div>
+    <h1 class="tagSearchCall" onclick="searchTagsDialog()"><i class="fa fa-hashtag"></i> Search Tags</h1>
       <div class="tagInformation">
 
         <div class="tagModal searchbox">
@@ -83,7 +84,7 @@ if (!empty($_GET)) {
           </div>
             
         </div>
-      <h1 onclick="searchTagsDialog()"><i class="fa fa-hashtag" ></i> Search Tags</h1>
+      
     </div>
   </div>
 
@@ -110,6 +111,7 @@ if (!empty($_GET)) {
    function getWords(value) {
     $.post("search.php", {word: value}, function(data) {
       $(".results").html(data);
+
     });
   }
 
@@ -141,6 +143,13 @@ if (!empty($_GET)) {
     });
   });
    }
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53354801-4', 'auto');
+  ga('send', 'pageview');
     </script>
 </body>
 </html>
