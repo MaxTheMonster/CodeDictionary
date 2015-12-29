@@ -51,3 +51,16 @@
     }
   }
 }
+
+@media only screen and (min-width: 1075px) {
+  .tagSearchCall {
+    font-size: 0.06rem;
+  }
+
+  nav {
+    a {
+      font-size: 0.6rem;
+      top: 0;
+    }
+  }
+}

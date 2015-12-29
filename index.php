@@ -109,6 +109,7 @@ if (!empty($_GET)) {
     })
   }
    function getWords(value) {
+    $(".results").show();
     $.post("search.php", {word: value}, function(data) {
       $(".results").html(data);
 

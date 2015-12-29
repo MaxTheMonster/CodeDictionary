@@ -227,6 +227,7 @@ nav {
 }
 
 .results {
+  display: none;
   text-decoration: none;
   width: 60%;
   margin: 0 auto;
@@ -513,20 +514,22 @@ nav {
 
   .tagSearchResults {
     background-color: darken(slategray, 30%);
+    border-radius: 2px;
+    padding: 1%;
     color: white;
-    position: fixed;
     text-decoration: none;
-    width: 60%;
+    width: 58%;
     margin: 0 auto;
     display: block;
     text-align: left;
 
       div {
         margin: 1em;
-        border-bottom: darken(slategray, 40%);
-
+        border-bottom: 1px solid darken(slategray, 40%);
+        
         h3 {
           color: white;
+
 
           &:hover {
             color: limegreen;
@@ -600,5 +603,4 @@ h1.tagSearchCall {
       color: limegreen;
       transition: 0.1s;
     }
-
 }
