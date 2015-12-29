@@ -8,7 +8,6 @@
       width: 90%;
       left: 0;
     }
-    
   }
 .results {
       width: 90%;
@@ -59,8 +58,10 @@
 
   nav {
     a {
-      font-size: 0.6rem;
-      top: 0;
+      h1 {
+        font-size: 1.5rem;
+        top: 0;
+      }
     }
   }
 }

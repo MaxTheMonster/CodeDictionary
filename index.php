@@ -110,10 +110,13 @@ if (!empty($_GET)) {
   }
    function getWords(value) {
     $(".results").show();
-    $.post("search.php", {word: value}, function(data) {
-      $(".results").html(data);
-
-    });
+    if ((value) == "") {
+        $(".results").hide();
+      } else {
+        $.post("search.php", {word: value}, function(data) {
+          $(".results").html(data);
+        });
+    }
   }
 
  function report() {
