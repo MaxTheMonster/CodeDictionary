@@ -1,4 +1,4 @@
-@media only screen and (max-width: 809px) {
+@media only screen and (max-width: 808px) {
   #searchbox {
     width: 90%;
     h1 {
@@ -23,12 +23,33 @@
   }
 }
 
+@media only screen and (max-width: 822px) {
+  .searchbox {
+    h1 {
+      font-size: 1.6rem;
+    }
+  }
+  nav {
+    a {
+      font-size: 0.8rem;
+    }
+    h1 {
+      font-size: 0.5rem;
+    }
+  }
+
+  .tagSearchCall {
+    width: 5%;
+  }
+}
+
+
 @media only screen and (max-width: 588px) {
-  #searchbox {
+  .searchbox {
     width: 100%;
     h1 {
       width: 60%;
-      font-size: 2rem;
+      font-size: 1.2rem;
       padding-bottom: 2em;
       text-align: center;
       display: inline;

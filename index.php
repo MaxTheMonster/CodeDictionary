@@ -17,6 +17,14 @@ if (!empty($_GET)) {
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css">
 </head>
 <body>
+<div class="tabs">
+  <h1 class="tab" id="search-tab" onclick="showSearch()"><i class="fa fa-binoculars"></i> Search</h1>
+  <h1 class="tab" id="sub-definition"><i class="fa fa-plus"></i> Submit</h1>
+  <h1 class="tab" id="search-tags"><i class="fa fa-hashtag"></i>
+ Tags</h1>
+  <h1 class="tab" id="latest-definitions" onclick="getLatestDefintions()"><i class="fa fa-list"></i>
+ Latest</h1>
+</div>
   <div class="container">
   
     <div class="latestResults">
@@ -91,6 +99,15 @@ if (!empty($_GET)) {
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
+  function showSearch() {
+    $(".searchbox").show();
+    $(".latestResults").hide();
+
+  }
+  function getLatestDefintions() {
+    $(".latestResults").show();
+    $(".searchbox").hide();
+  }
   function searchTagsDialog() {
     console.log("searchTags");
     $("div.tagModal").show();

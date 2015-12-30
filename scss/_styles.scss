@@ -1,6 +1,8 @@
 body {
   font-family: 'Raleway', sans-serif;
   font-weight: normal;
+  margin: 0;
+  padding: 0;
   background-color: lighten(#778899, 40%);
   transition: 0.6s;
 }
@@ -227,14 +229,12 @@ nav {
 }
 
 .results {
-  visibility: hidden;
+  display: none;
   text-decoration: none;
   width: 60%;
   margin: 0 auto;
   background-color: darken(slategray, 30%);
   border-top: 2px solid darken(slategray, 40%);
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
   border-radius: 2px;
   text-align: left;
   overflow: hidden;
@@ -335,18 +335,23 @@ nav {
 }
 
 .latestResults {
-  width: 20%;
-  z-index: 200;
-  background-color: white;
-  border: 1px solid limegreen;
-  border-radius: 4px;
+  top: 40%;
+  position: absolute;
+  left: 50%;
+  width: 60%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
   font-size: 1rem;
-  float: right;
-  top: 30%;
+  display: none;
+  border: 1px solid black;
   cursor: pointer;
+  border-radius: 5px;
 
   h1#latestDefinitions {
+    background-color: lighten(#778899, 40%);
     text-align: center;
+    cursor: auto;
+    font-weight: normal;
   }
 
   div.abovethefoldinfo {
@@ -603,4 +608,27 @@ h1.tagSearchCall {
       color: limegreen;
       transition: 0.1s;
     }
+}
+
+.tabs {
+  z-index: 202;
+  .tab {
+    font-size: 1.7rem;
+    border: 1px solid black;
+    border-left: 0;
+    border-radius: 0 5px 5px 0;
+    padding: 0.5em;
+    width: 10%;
+    background-color: white;
+    transition: 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: limegreen;
+      color: white;
+      border: 1px solid limegreen;
+      width: 20%;
+      transition: 0.2s;
+    }
+  }
 }
