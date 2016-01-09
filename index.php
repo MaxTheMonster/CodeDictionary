@@ -19,10 +19,10 @@ if (!empty($_GET)) {
 <body>
 <div class="tabs">
   <h1 class="tab" id="search-tab" onclick="showSearch()"><i class="fa fa-binoculars"></i> Search</h1>
-  <h1 class="tab" id="sub-definition"><i class="fa fa-plus"></i> Submit</h1>
+  <h1 class="tab" id="sub-definition" onclick="showSubmit()"><i class="fa fa-plus"></i> Submit</h1>
   <h1 class="tab" id="search-tags"><i class="fa fa-hashtag"></i>
  Tags</h1>
-  <h1 class="tab" id="latest-definitions" onclick="getLatestDefintions()"><i class="fa fa-list"></i>
+  <h1 class="tab" id="latest-definitions" onclick="showLatestDefintions()"><i class="fa fa-list"></i>
  Latest</h1>
 </div>
   <div class="container">
@@ -68,6 +68,7 @@ if (!empty($_GET)) {
     }
       ?></div>
       </div>
+      <div class="mainPageSearch">
         <div class="searchbox">
         <h1>Search Code Dictionary definitions</h1>
         <form>
@@ -75,13 +76,8 @@ if (!empty($_GET)) {
           <div class="results"></div>
         </form>
        </div>
-       <nav> 
-       <a href="/"><h1>Code Dictionary</h1></a>
-      <a href="submit/">Submit Definition</a>
-     
-    </nav>
+      </div>
     <div class="tagInformationBackground"></div>
-    <h1 class="tagSearchCall" onclick="searchTagsDialog()"><i class="fa fa-hashtag"></i> Search Tags</h1>
       <div class="tagInformation">
 
         <div class="tagModal searchbox">
@@ -94,19 +90,46 @@ if (!empty($_GET)) {
         </div>
       
     </div>
+  <div class="new-definition">
+  <h1>Submit a definition</h1>
+    <form method="post" action="definition.php">
+      <div class="entry">
+        <label for="word">Word to define</label><input name="word" type="text" placeholder="Word...">
+      </div>
+      <div class="entry">
+        <label for="name">Your nickname</label><input name="name" type="text" placeholder="Name...">
+      </div>
+      <div class="entry">
+        <label for="definition">Definition</label> <textarea type="text" name="definition" placeholder="Your definition"></textarea>
+      </div>
+      <div class="entry">
+        <label for="tagName">Language/Framework(s) word applies to</label>
+        <input type="text" name="tagName" placeholder="E.g HTML" onkeyup="getWords(this.value)" autocomplete="off">
+        <div id="tags"></div>
+      </div>
+      <input type="submit" value="Submit">
+    </form>  
+  </div>
   </div>
 
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
-  function showSearch() {
-    $(".searchbox").show();
+  function showSubmit() {
+    $(".new-definition").show();
+    $(".mainPageSearch").hide();
     $(".latestResults").hide();
-
+    location.hash = 'submit';
   }
-  function getLatestDefintions() {
+  function showSearch() {
+    window.location.replace("/");
+  }
+  function showLatestDefintions() {
     $(".latestResults").show();
-    $(".searchbox").hide();
+    $(".mainPageSearch").hide();
+    location.hash = 'latest';
+    $(".tagresults").hide();
+    $(".new-definition").hide();
   }
   function searchTagsDialog() {
     console.log("searchTags");

@@ -72,7 +72,7 @@
   }
 }
 
-@media only screen and (min-width: 1075px) {
+@media only screen and (max-width: 1066px) {
   .tagSearchCall {
     font-size: 0.06rem;
   }
@@ -84,5 +84,26 @@
         top: 0;
       }
     }
+  }
+
+  .tabs {
+    .tab {
+      font-size: 1.6rem;
+      width: 15%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1114px) {
+  .tabs {
+    .tab {
+      width: 15%;
+    }
+  }
+}
+
+@media only screen and (min-height: 2000px) {
+  .new-defintion {
+    top: 10%;
   }
 }
